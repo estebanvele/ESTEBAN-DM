@@ -44,6 +44,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onResume();
+    }
+
+    }
+    @Override
+    protected void onStop(){
+        super.onPause();
+
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+    }
+
+
     public double calcularArea(int l1,int l2){
         return l1*l2;
     }
