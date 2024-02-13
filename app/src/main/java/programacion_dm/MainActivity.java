@@ -13,8 +13,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView nombreUsuario;
-    Button btn1,btn2;
+   TextView nombreUsuario;
+   Button btn1,btn2;
+
+   String Tag = "Prueba";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
-
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nombreUsuario.setText("Presioné Boton Uno");
+                nombreUsuario.setText("Presioné Boton UNO");
 
             }
         });
@@ -44,32 +45,59 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onStart(){
         super.onStart();
+        Log.i(Tag, "ESTOY EN ONSTART");
 
     }
 
     @Override
     protected void onResume(){
         super.onResume();
+        Log.i(Tag, "ESTOY EN onResume");
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nombreUsuario.setText("BIENVENIDO");
+
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nombreUsuario.setText("HOLLLAA");
+
+            }
+        });
+
 
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause(){
         super.onResume();
-    }
+        Log.i(Tag, "ESTOY EN onPause");
 
     }
+
+
+
     @Override
     protected void onStop(){
         super.onPause();
+        Log.i(Tag, "ESTOY EN onStop");
+
 
     }
     @Override
     protected void onDestroy(){
         super.onDestroy();
+        Log.i(Tag, "ESTOY EN onDestroy");
+
 
     }
 
